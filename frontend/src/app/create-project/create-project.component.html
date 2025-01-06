@@ -81,18 +81,4 @@
     </div>
 </div>
 
-<!-- Mostrar proyectos creados -->
-<div class="projects-container">
-    <div class="project-card" *ngFor="let project of projects">
-        <h3>{{ project.name }}</h3>
-        <p>{{ project.description }}</p>
 
-        <!-- Mostrar tareas asociadas a cada proyecto -->
-        <div class="tasks">
-            <h4>Tareas:</h4>
-            <div *ngFor="let task of project.tasks">
-                <p>{{ task.name }} - {{ task.description }}</p>
-            </div>
-        </div>
-    </div>
-</div>
