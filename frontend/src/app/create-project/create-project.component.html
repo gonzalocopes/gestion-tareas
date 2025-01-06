@@ -1,0 +1,98 @@
+<!-- Barra de Navegación Lateral -->
+<div class="sidebar">
+    <!-- Logo de la empresa -->
+    <div class="logo">
+        <img [attr.src]="'assets/img/tarea.png'" alt="Logo de la Empresa">
+    </div>
+
+    <!-- Menú de navegación -->
+    <ul>
+        <li><a href="#ver-usuarios">Usuarios</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle">Proyectos</a>
+            <ul class="dropdown-menu">
+                <li><a href="#ver-proyectos">Crear Proyectos</a></li>
+                <li><a href="#crear-proyecto">Ver Proyecto</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle">Tareas</a>
+            <ul class="dropdown-menu">
+                <li><a href="#ver-tareas">Crear Tareas</a></li>
+                <li><a href="#crear-tarea">Ver Tarea</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle">Settings</a>
+            <ul class="dropdown-menu">
+                <li><a href="#mi-perfil">Mi Perfil</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <!-- Ícono de logout al final, fuera del <ul> -->
+    <div class="logout-container">
+        <a href="#cerrar-sesion" class="logout-link">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+    </div>
+</div>
+
+<!-- Contenedor de creación de proyecto y tareas -->
+<div class="create-project-container">
+    <div class="create-project-box">
+        <h2>Crear Proyecto</h2>
+        <form (ngSubmit)="onCreateProject($event, projectNameInput, projectDescriptionInput)">
+            <label for="project-name">Nombre del Proyecto:</label>
+            <input 
+                type="text" 
+                id="project-name" 
+                #projectNameInput 
+                placeholder="Nombre del Proyecto" />
+
+            <label for="project-description">Descripción:</label>
+            <textarea 
+                id="project-description" 
+                #projectDescriptionInput 
+                placeholder="Descripción del Proyecto"></textarea>
+
+            <button type="submit">Crear Proyecto</button>
+        </form>
+    </div>
+
+    <div class="create-task-box">
+        <h2>Crear Tareas</h2>
+        <form (ngSubmit)="onCreateTask($event, taskNameInput, taskDescriptionInput)">
+            <label for="task-name">Nombre de la Tarea:</label>
+            <input 
+                type="text" 
+                id="task-name" 
+                #taskNameInput 
+                placeholder="Nombre de la Tarea" />
+
+            <label for="task-description">Descripción:</label>
+            <textarea 
+                id="task-description" 
+                #taskDescriptionInput 
+                placeholder="Descripción de la Tarea"></textarea>
+
+            <button type="submit">Crear Tarea</button>
+        </form>
+    </div>
+</div>
+
+<!-- Mostrar proyectos creados -->
+<div class="projects-container">
+    <div class="project-card" *ngFor="let project of projects">
+        <h3>{{ project.name }}</h3>
+        <p>{{ project.description }}</p>
+
+        <!-- Mostrar tareas asociadas a cada proyecto -->
+        <div class="tasks">
+            <h4>Tareas:</h4>
+            <div *ngFor="let task of project.tasks">
+                <p>{{ task.name }} - {{ task.description }}</p>
+            </div>
+        </div>
+    </div>
+</div>

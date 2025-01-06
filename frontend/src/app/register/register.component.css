@@ -1,0 +1,92 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  
+  margin: 0;
+}
+
+.register-container {
+  background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente */
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 3rem 2rem;
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+.register-container:hover {
+  transform: translateY(-8px);
+}
+
+h2 {
+  color: #3498db;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+label {
+  color: #555;
+  font-weight: 500;
+  font-size: 1.1rem;
+  text-align: left;
+}
+
+input {
+  padding: 1rem;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.3);
+}
+
+button {
+  background-color: #3498db;
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+button:active {
+  transform: translateY(2px);
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+  .register-container {
+    padding: 2rem 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  input, button {
+    font-size: 1rem;
+  }
+}
